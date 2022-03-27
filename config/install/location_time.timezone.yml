@@ -1,0 +1,7 @@
+country: America
+city: Chicago
+location_timezone: America/Chicago
+langcode: en
+dependencies:
+module:
+  - location_time

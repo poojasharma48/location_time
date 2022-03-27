@@ -1,0 +1,8 @@
+location_time.regional_form:
+  path: '/admin/config/custom/regional/settings'
+  defaults:
+    _form: '\Drupal\location_time\Form\regionalForm'
+    _title: 'Regional Setting.'
+  requirements:
+    _role: 'administrator'
+
