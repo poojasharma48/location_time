@@ -27,11 +27,9 @@ class currentTimeService {
   */
   public function getClockCurrentTime($type, $format = '', $location_timezone) {
     // Get current language code.
-    $lang = $this->language_manager->get();
-    $langcode = $lang->getId();
-    /*Get the current date*/
-    $date_formatter = $this->date_formatter;
-    $formatted_date = $date_formatter->format(time(), $type, $format, $location_timezone, $langcode);
+    $langcode = $this->language_manager->get()->getId(;
+    /*Get the current formatted date*/
+    $formatted_date = this->date_formatter->format(time(), $type, $format, $location_timezone, $langcode);
     return $formatted_date;
   }
 }
