@@ -3,7 +3,6 @@
 namespace Drupal\location_time\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -18,7 +17,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
  * )
  */
    
-class locTimeBlock extends BlockBase implements BlockPluginInterface, ContainerFactoryPluginInterface {
+class locTimeBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   protected $configfactory;
   protected $current_time_service;
