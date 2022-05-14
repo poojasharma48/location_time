@@ -10,7 +10,6 @@ use Drupal\Core\Form\FormStateInterface;
  * @internal
  */
 class regionalForm extends ConfigFormBase {
-
   /**  
    * {@inheritdoc}  
    */  
@@ -19,7 +18,6 @@ class regionalForm extends ConfigFormBase {
       'location_time.timezone',  
     ];  
   }  
-
   /**
    * Returns a unique string identifying the form.
    *
@@ -32,8 +30,7 @@ class regionalForm extends ConfigFormBase {
    */
   public function getFormId() {
     return 'loc_timezone_form';
-  }
-  
+  } 
   /**
    * Form constructor.
    *
@@ -58,21 +55,18 @@ class regionalForm extends ConfigFormBase {
       '#title' => t('loaction Time Details'),
       '#open' => TRUE,
     ];
-
     $form['loc_time_info']['country'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Enter Country'),
       '#default_value' => isset($country) ? $country : '',
       '#required' => true,
     );
-
     $form['loc_time_info']['city'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Enter City'),
       '#default_value' => isset($city) ? $city : '',
       '#required' => true,
     );
-
     $form['loc_time_info']['location_timezone'] = array(
       '#type' => 'select',
       '#title' => $this->t('Select timezone'),
@@ -81,7 +75,6 @@ class regionalForm extends ConfigFormBase {
       '#required' => true,
       '#options' => $timezone_opts
     );
-
     $form['actions']['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Save Configuration'),
@@ -89,9 +82,7 @@ class regionalForm extends ConfigFormBase {
     );
     
     return $form; 
-  }
-       
-
+  }     
   /**
    * Validate the title and the checkbox of the form
    * 
@@ -101,8 +92,7 @@ class regionalForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {  
     
-  }
-  
+  } 
   /**
    * Form submission handler.
    *
@@ -112,15 +102,12 @@ class regionalForm extends ConfigFormBase {
    *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {  
-
     parent::submitForm($form, $form_state);  
-  
     $this->config('location_time.timezone')  
       ->set('city', $form_state->getValue('city'))  
       ->set('country', $form_state->getValue('country'))  
       ->set('location_timezone', $form_state->getValue('location_timezone'))  
-      ->save();   
-      
+      ->save();        
   }
 
 }
