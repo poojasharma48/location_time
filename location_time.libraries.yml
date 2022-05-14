@@ -1,7 +1,7 @@
 clock_lib:
   version: v1
   js:
-    js/clock.js: { scope: footer }
+    js/clock.js
   dependencies:
     - core/jquery
     - core/drupal
