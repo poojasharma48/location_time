@@ -70,14 +70,16 @@ class locTimeBlock extends BlockBase implements ContainerFactoryPluginInterface 
       'daylight_savings_time' => $daylight_savings_time,
     );
 
-    $build['#attached']['library'][] = 'location_time/clock_lib';
-    $build['#attached']['drupalSettings'] = $js_settings;
-
-    $build['#theme'] = 'loc_time_block';
-    $build['#country'] = $country;
-    $build['#city'] = $city;
-    $build['#current_time'] = $time;
-
+    $build = [
+      '#attached'     => [
+        'library' => 'location_time/clock_lib',
+        'drupalSettings' => $js_settings,
+        ],
+      '#theme'         => 'loc_time_block',
+      '#country'       => $country,
+      '#city'          => $city,
+      '#current_time'  => $time,
+    ];
     return $build;
 
   }
