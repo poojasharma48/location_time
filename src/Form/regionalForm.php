@@ -3,6 +3,7 @@ namespace Drupal\location_time\Form;
 
 use Drupal\Core\Form\ConfigFormBase;  
 use Drupal\Core\Form\FormStateInterface; 
+use Drupal\Core\Cache\Cache;
 
 /**
  * Form handler for the class.
@@ -107,7 +108,9 @@ class regionalForm extends ConfigFormBase {
       ->set('city', $form_state->getValue('city'))  
       ->set('country', $form_state->getValue('country'))  
       ->set('location_timezone', $form_state->getValue('location_timezone'))  
-      ->save();        
+      ->save();       
+   /*invalidate block cache when for, submit so that updated timezone display*/
+    Cache::invalidateTags(['config:block.block.locationtime']); 
   }
 
 }
